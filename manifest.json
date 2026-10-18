@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "To-Do List",
+  "version": "1.0",
+ "description": " Simple to-do list in the browser",
+
+  "permissions": ["sidePanel", "storage"],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "To Do List"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  }
+
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kavoon&family=Limelight&display=swap" rel="stylesheet"><style>
+   :root {
+     color-scheme: light;
+			--border: #71b5ff;
+			--paper: #fcf6c3;
+			--resin: #add3fc;
+			--shadow: 0 18px 45px rgba(32, 54, 47, 0.12);
+
+    }
+   * {box-sizing: border-box;}
+   
+   
+   body {
+    
+        font-family: 'Limelight', cursive;
+        background: #f4f4f4;
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        color: var(--border);
+        padding: 24px;
+    }
+
+    main {
+        width: min(100%, 680px);
+        padding: clamp(24px, 5vw, 48px);
+        box-shadow: var(--shadow);
+   
+        background: var(--paper);
+        border: 1px solid rgba(35, 107, 92, 0.12);
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        margin: 0 0 8px;
+         font-size: clamp(2rem, 6vw, 3.3rem);
+     }
+
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 22px;
+        } 
+
+     input[type="text"] {
+            flex: 1;
+            min-width: 0;
+            padding: 13px 14px;
+            border: 2px solid var(--border);
+            border-radius: 40px;
+            color: var(--border);
+            font: 1rem 'Limelight', sans-serif;
+
+        }
+
+        input[type="text"]:focus
+         { outline: 3px solid rgba(35, 107, 92, 0.2);
+             border-color: var(--border);
+        }
+
+button {
+			border: 2px solid var(--border);
+			border-radius: 40px;
+			padding: 0 18px;
+			color: white;
+			background: var(--resin);
+			font: 700 0.95rem 'Limelight', cursive;
+			cursor: pointer;
+		}
+
+        button:hover {
+     background: var(--border);
+
+    }
+
+		.summary {
+             margin: 0 0 12px;
+             color: var(--border); 
+             font: 0.85rem 'Limelight', cursive;
+         }
+
+
+         .task {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			color: rgb(255, 255, 255);
+			padding: 14px;
+			background-color: var(--resin);
+			border: 2px solid var(--border);
+			border-radius: 40px;
+			font: 1rem/1.4 'Limelight', cursive;
+		}
+         
+		#task-list {
+             display: grid;
+             gap: 10px;
+             padding: 0;
+              margin: 0; 
+              list-style: none;
+             }
+        .task input {
+             width: 18px;
+             height: 18px;
+              accent-color: var(--border); 
+              cursor: pointer; border: 10px;
+               color: var(--border);
+            }
+
+		.task span { flex: 1; }
+	
+		.task .cancel-button {
+             padding: 7px 10px; 
+             color: var(--border);
+              background: white; 
+              border: 2px solid var(--border);
+               font-size: 0.8rem; 
+            }
+		.task .cancel-button:hover {
+             color: white;
+              background: var(--resin);
+             border: 2px solid var(--border);
+            }
+
+
+		.task.completed { background: var(--paper); 
+            color: var(--border); }
+
+
+		.task.completed span {
+             text-decoration: line-through;
+         }
+		
+
+        .empty { 
+            padding: 20px 0; 
+            color: var(--border); 
+            font: 0.95rem  'Limelight', cursive;
+         }
+
+            @media (max-width: 430px) {
+			form { flex-direction: column; }
+			button { min-height: 44px; }
+		}
+
+
+</style>
+</head>
+<body>
+    <main>
+        <h1>To-Do List</h1>
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Add task" required>
+            <button type="submit">Add</button>
+        </form>
+        <p id="task-summary" aria-live="polite" class="summary">Tasks: 0</p>
+        <ul id="task-list"></ul>
+   
+        </main>
+
+    <script src="TasksScript.js"></script>
+</body>
+</html>
